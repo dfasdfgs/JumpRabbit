@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]private Player player;
+    [SerializeField] Player player;
+    [SerializeField] PlatformManager platformManager;
 
     private void Awake()
     {
         player.Init();
+        platformManager.Init();
+    }
+
+    private void Start()
+    {
+        platformManager.Active();
     }
 }
