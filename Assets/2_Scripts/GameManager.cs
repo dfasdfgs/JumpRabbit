@@ -1,17 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] PlatformManager platformManager;
+    [SerializeField] CameraManager cameraManager;
 
     private void Awake()
     {
         player.Init();
         platformManager.Init();
+        cameraManager.Init();
     }
 
     private void Start()

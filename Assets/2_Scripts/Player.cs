@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] float JumpPowerInc;
     private float JumpPower = 1f;
     private Rigidbody2D rigd;
     private Animator anim;
@@ -21,15 +20,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetInteger("StateID", 1);
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            JumpPower += 1;
+            JumpPower += JumpPowerInc;
         }
-            else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             rigd.AddForce(Vector2.one * JumpPower);
             JumpPower = 0;
@@ -42,5 +41,7 @@ public class Player : MonoBehaviour
     {
         anim.SetInteger("StateID", 0);
         rigd.velocity = Vector2.zero;
+
+        CameraManager.instance.OnFollow(transform.position);
     }
 }
