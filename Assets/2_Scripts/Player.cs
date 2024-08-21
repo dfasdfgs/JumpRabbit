@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float JumpPowerInc;
     private float JumpPower = 1f;
     private Rigidbody2D rigd;
     private Animator anim;
@@ -26,7 +25,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            JumpPower += JumpPowerInc;
+            JumpPower += DataBaseManater.Instance.JumpPowerInc;
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -43,5 +42,10 @@ public class Player : MonoBehaviour
         rigd.velocity = Vector2.zero;
 
         CameraManager.instance.OnFollow(transform.position);
+
+        if(collision.transform.parent.TryGetComponent(out Platform platform))
+        {
+            platform.OnLanding();
+        }
     }
 }

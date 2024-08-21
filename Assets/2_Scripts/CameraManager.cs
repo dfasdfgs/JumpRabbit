@@ -4,7 +4,6 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
-    [SerializeField] float followSpeed;
 
     public void Init()
     {
@@ -19,7 +18,7 @@ public class CameraManager : MonoBehaviour
     {
         while (0.1 < Vector3.Distance(transform.position, targerPos))
         {
-            transform.position = Vector3.Lerp(transform.position, targerPos, Time.deltaTime * followSpeed);
+            transform.position = Vector3.Lerp(transform.position, targerPos, Time.deltaTime * DataBaseManater.Instance.followSpeed);
             yield return null;
         }
     }
