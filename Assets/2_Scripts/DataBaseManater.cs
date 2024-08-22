@@ -4,6 +4,7 @@ using UnityEngine;
 public class DataBaseManater : ScriptableObject
 {
     public static DataBaseManater Instance;
+    public float BonusValue;
 
 
     [Header("플레이어")]

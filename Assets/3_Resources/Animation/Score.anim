@@ -32,7 +32,7 @@ AnimationClip:
         outWeight: 0.050328124
       - serializedVersion: 3
         time: 0.8833333
-        value: 5.4871297
+        value: 5.3474317
         inSlope: -5.2028027
         outSlope: -5.2028027
         tangentMode: 0
@@ -266,7 +266,7 @@ AnimationClip:
         outWeight: 0.050328124
       - serializedVersion: 3
         time: 0.8833333
-        value: 5.4871297
+        value: 5.3474317
         inSlope: -5.2028027
         outSlope: -5.2028027
         tangentMode: 0
@@ -458,4 +458,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: Deactive
+    data: 
+    objectReferenceParameter: {fileID: 4543449422712490480, guid: a4e604537509c8f45aff00c56eb9b8ca, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

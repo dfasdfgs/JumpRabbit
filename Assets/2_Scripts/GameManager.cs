@@ -21,5 +21,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         platformManager.Active();
+
+        int a = 123456;
+        Debug.Log("Extension Test int : " + a.ToString());
+
+        float b = 123456.789f;
+        Debug.Log("Extension Test int : " + b.ToString());
     }
 }

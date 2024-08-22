@@ -55,7 +55,6 @@ public class PlatformManager : MonoBehaviour
         foreach (Data data in DataBaseManater.Instance.DataArr)
         {
             platformGroupSum += data.GroupCount;
-            Debug.Log($"platformGroupSum: {platformGroupSum} ========");
 
             while (platformNumber < platformGroupSum)
             {
@@ -75,7 +74,6 @@ public class PlatformManager : MonoBehaviour
 
         Platform platform = Instantiate(randomplatform);
         platform.Active(Pos);
-        Debug.Log($"Active Pos :  {Pos}");
 
         if (platformNumber != 0)
             Pos = Pos + Vector3.right * platform.HalfSizeX;

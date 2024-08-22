@@ -7,6 +7,7 @@ public class Platform : MonoBehaviour
     [SerializeField] int score;
   
     public float HalfSizeX => col.size.x * 0.5f;
+    public int Score => score;
 
 
     private void Awake()
@@ -21,6 +22,7 @@ public class Platform : MonoBehaviour
 
     internal void OnLanding()
     {
-        ScoreManager.Instance.AddScore(score);
+        ScoreManager.Instance.AddScore(score, transform.position);
+
     }
 }

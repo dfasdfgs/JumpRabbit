@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     private float JumpPower = 1f;
     private Rigidbody2D rigd;
     private Animator anim;
+    private Platform landedPlatform;
 
     private void Awake()
     {
@@ -41,11 +42,17 @@ public class Player : MonoBehaviour
         anim.SetInteger("StateID", 0);
         rigd.velocity = Vector2.zero;
 
+
         CameraManager.instance.OnFollow(transform.position);
 
         if(collision.transform.parent.TryGetComponent(out Platform platform))
         {
-            platform.OnLanding();
+            ScoreManager.Instance.AddScore(platform.Score, platform.transform.position);
+
+            if (landedPlatform != platform) ScoreManager.Instance.AddBonus(DataBaseManater.Instance.BonusValue, transform.position);
+            else ScoreManager.Instance.ResetBonus();
+
+            landedPlatform = platform;
         }
     }
 }
