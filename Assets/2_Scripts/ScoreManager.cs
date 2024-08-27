@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     [SerializeField] TextMeshProUGUI scoreTmp;
+    [SerializeField] TextMeshProUGUI bonusTmp;
     [SerializeField] Score baseScore;
 
     [SerializeField] int totalScore;
+    [SerializeField] float totalbonus;
 
     public void Init()
     {
@@ -27,13 +30,15 @@ public class ScoreManager : MonoBehaviour
         scoreTmp.text = totalScore.ToString();
     }
 
-    internal void AddBonus(float bonusValue, Vector3 position)
+    internal void AddBonus(float bonus, Vector3 position)
     {
- //       throw new NotImplementedException();
+        totalbonus += bonus; 
+        bonusTmp.text = totalbonus.ToPersentStiring();
     }
 
     internal void ResetBonus()
     {
-//        throw new NotImplementedException();
+        totalbonus = 0;
+        bonusTmp.text = totalbonus.ToPersentStiring();
     }
 }

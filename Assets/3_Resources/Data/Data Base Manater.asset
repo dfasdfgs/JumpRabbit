@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Data Base Manater
   m_EditorClassIdentifier: Assembly-CSharp::DataBaseManater
+  BonusValue: 0.05
   JumpPowerInc: 5
   LargePlatformArr:
   - {fileID: 3149893595993718301, guid: f81e144c0504d704db1f1be696975f0b, type: 3}
