@@ -6,6 +6,9 @@ public class DataBaseManater : ScriptableObject
     public static DataBaseManater Instance;
     public float BonusValue;
 
+    [Header("연출")]
+    public Color ScoreColor;
+    public Color BonusColor;
 
     [Header("플레이어")]
     public float JumpPowerInc = 1;

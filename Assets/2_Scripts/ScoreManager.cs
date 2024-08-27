@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Score baseScore;
 
     [SerializeField] int totalScore;
-    [SerializeField] float totalbonus;
+    [SerializeField] float totalBonus;
 
     public void Init()
     {
@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
     {
         Score scoreObject = Instantiate(baseScore);
         scoreObject.transform.position = scorePos;
-        scoreObject.Active(score); 
+        scoreObject.Active(score.ToString(), DataBaseManater.Instance.ScoreColor); 
 
         totalScore += score;
         scoreTmp.text = totalScore.ToString();
@@ -32,13 +32,19 @@ public class ScoreManager : MonoBehaviour
 
     internal void AddBonus(float bonus, Vector3 position)
     {
-        totalbonus += bonus; 
-        bonusTmp.text = totalbonus.ToPersentStiring();
+        Score scoreObject = Instantiate(baseScore);
+        scoreObject.transform.position = position;
+
+        string str = "Bonus " + bonus.ToPersentStiring();
+        scoreObject.Active(str, DataBaseManater.Instance.BonusColor);
+
+        totalBonus += bonus; 
+        bonusTmp.text = totalBonus.ToPersentStiring();
     }
 
     internal void ResetBonus()
     {
-        totalbonus = 0;
-        bonusTmp.text = totalbonus.ToPersentStiring();
+        totalBonus = 0;
+        bonusTmp.text = totalBonus.ToPersentStiring();
     }
 }
