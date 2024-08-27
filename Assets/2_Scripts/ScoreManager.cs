@@ -1,16 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class ScoreManager : MonoBehaviour
 {
+    private struct ScoreData
+    {
+        public string str;
+        public Color color;
+        public Vector2 pos;
+    }
+
     public static ScoreManager Instance;
     [SerializeField] TextMeshProUGUI scoreTmp;
     [SerializeField] TextMeshProUGUI bonusTmp;
     [SerializeField] Score baseScore;
+    private List<ScoreData> scoreDataList = new List<ScoreData>();
 
     [SerializeField] int totalScore;
     [SerializeField] float totalBonus;
@@ -18,29 +24,61 @@ public class ScoreManager : MonoBehaviour
     public void Init()
     {
         Instance = this;
+        StartCoroutine(OnScoreCor());
+    }
+
+    private IEnumerator OnScoreCor()
+    {
+        while (true)
+        {
+            if (scoreDataList.Count > 0)
+            {
+                ScoreData data = scoreDataList[0];
+
+                Score scoreobj = Instantiate<Score>(baseScore);
+                scoreobj.transform.position = data.pos;
+                scoreobj.Active(data.str, data.color);
+
+                scoreDataList.RemoveAt(0);
+                yield return new WaitForSeconds(DataBaseManater.Instance.ScorePopinterval);
+            }
+            else
+            {
+                yield return null; //한프레임이 실행될때마다 쉼
+            }
+        }
     }
 
     public void AddScore(int score, Vector2 scorePos)
     {
-        Score scoreObject = Instantiate(baseScore);
-        scoreObject.transform.position = scorePos;
-        scoreObject.Active(score.ToString(), DataBaseManater.Instance.ScoreColor); 
+        //애니
+        scoreDataList.Add(new ScoreData()
+        {
+            str = score.ToString(),
+            color = DataBaseManater.Instance.ScoreColor,
+            pos = scorePos
+        });
 
+        //canvas
         totalScore += score;
         scoreTmp.text = totalScore.ToString();
     }
 
     internal void AddBonus(float bonus, Vector3 position)
     {
-        Score scoreObject = Instantiate(baseScore);
-        scoreObject.transform.position = position;
+        scoreDataList.Add(new ScoreData()
+        {
+            str = "Bonus " + bonus.ToPersentStiring(),
+            color = DataBaseManater.Instance.BonusColor,
+            pos = position
+        });
 
-        string str = "Bonus " + bonus.ToPersentStiring();
-        scoreObject.Active(str, DataBaseManater.Instance.BonusColor);
-
-        totalBonus += bonus; 
+        //canvas
+        totalBonus += bonus;
         bonusTmp.text = totalBonus.ToPersentStiring();
     }
+
+
 
     internal void ResetBonus()
     {
@@ -48,3 +86,4 @@ public class ScoreManager : MonoBehaviour
         bonusTmp.text = totalBonus.ToPersentStiring();
     }
 }
+
