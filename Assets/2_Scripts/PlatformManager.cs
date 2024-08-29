@@ -73,7 +73,6 @@ public class PlatformManager : MonoBehaviour
         Platform randomplatform = platforms[randID];
 
         Platform platform = Instantiate(randomplatform);
-        platform.Active(Pos);
 
         if (platformNumber != 0)
             Pos = Pos + Vector3.right * platform.HalfSizeX;

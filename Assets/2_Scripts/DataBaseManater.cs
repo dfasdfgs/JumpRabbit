@@ -4,7 +4,11 @@ using UnityEngine;
 public class DataBaseManater : ScriptableObject
 {
     public static DataBaseManater Instance;
-    public float BonusValue;
+
+    [Header("¾ÆÀÌÅÛ")]
+    public Item baseItem;
+    public float itemSpawnPer = 0.2f;
+    public float itemBouns = 0.25f;
 
     [Header("¿¬Ãâ")]
     public Color ScoreColor;
@@ -15,13 +19,14 @@ public class DataBaseManater : ScriptableObject
     public float JumpPowerInc = 1;
 
     [Header("ÇÃ·¿Æû")]
-    public Platform[] LargePlatformArr;
-    [Tooltip("Å« ÇÃ·§Æû")]public Platform[] MiddlePlatformArr;
-    [Tooltip("Áß°£ ÇÃ·§Æû")] public Platform[] smallPlatformArr;
-    [Tooltip("ÀÛÀº ÇÃ·§Æû")] public PlatformManager.Data[] DataArr;
+    [Tooltip("Å« ÇÃ·§Æû")] public Platform[] LargePlatformArr;
+    [Tooltip("Áß°£ ÇÃ·§Æû")]public Platform[] MiddlePlatformArr;
+    [Tooltip("ÀÛÀº ÇÃ·§Æû")] public Platform[] smallPlatformArr;
+    [Tooltip("ÇÃ·§Æû ¹èÄ¡")] public PlatformManager.Data[] DataArr;
 
     [Tooltip("ÃÖ¼Ò°£°Ý")] public float GepIntervalMin = 1.5f;
     [Tooltip("ÃÖ´ë°£°Ý")] public float GepIntervalMax = 3.0f;
+    [Tooltip("º¸³Ê½º Ãß°¡ Á¡¼ö")] public float BonusValue;
 
     [Header("Ä«¸Þ¶ó")] public float followSpeed;
 

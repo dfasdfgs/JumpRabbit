@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Data Base Manater
   m_EditorClassIdentifier: Assembly-CSharp::DataBaseManater
-  BonusValue: 0.05
+  baseItem: {fileID: 7465366257863086580, guid: 72322decddb654c4fa6766317831747a, type: 3}
+  itemSpawnPer: 0.5
+  itemBouns: 0.25
   ScoreColor: {r: 1, g: 1, b: 1, a: 1}
   BonusColor: {r: 1, g: 1, b: 0, a: 1}
-  JumpPowerInc: 5
+  ScorePopinterval: 0.2
+  JumpPowerInc: 4
   LargePlatformArr:
   - {fileID: 3149893595993718301, guid: f81e144c0504d704db1f1be696975f0b, type: 3}
   - {fileID: 3149893595993718301, guid: 84031f6634f56f344a9041c25392b707, type: 3}
@@ -44,4 +47,5 @@ MonoBehaviour:
     SmallPercent: 0.4
   GepIntervalMin: 1
   GepIntervalMax: 4
+  BonusValue: 0.05
   followSpeed: 7

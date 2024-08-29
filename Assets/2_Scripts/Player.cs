@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float JumpPower = 1f;
+    public float JumpPower = 1f;
     private Rigidbody2D rigd;
     private Animator anim;
     private Platform landedPlatform;
