@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 [CreateAssetMenu]
 public class DataBaseManater : ScriptableObject
@@ -20,7 +22,7 @@ public class DataBaseManater : ScriptableObject
 
     [Header("ÇÃ·¿Æû")]
     [Tooltip("Å« ÇÃ·§Æû")] public Platform[] LargePlatformArr;
-    [Tooltip("Áß°£ ÇÃ·§Æû")]public Platform[] MiddlePlatformArr;
+    [Tooltip("Áß°£ ÇÃ·§Æû")] public Platform[] MiddlePlatformArr;
     [Tooltip("ÀÛÀº ÇÃ·§Æû")] public Platform[] smallPlatformArr;
     [Tooltip("ÇÃ·§Æû ¹èÄ¡")] public PlatformManager.Data[] DataArr;
 
@@ -30,8 +32,60 @@ public class DataBaseManater : ScriptableObject
 
     [Header("Ä«¸Þ¶ó")] public float followSpeed;
 
+    [Header("»ç¿îµå")]
+    public SfxData[] sfxDataArr;
+    public BgmData[] bgmDataArr;
+
+    private Dictionary<Define.SfxType, SfxData> sfxDataDic = new Dictionary<SfxType, SfxData>();
+    private Dictionary<Define.BgmType, BgmData> BgmDataDic = new Dictionary<BgmType, BgmData>();
+
+
+
+
     public void Init()
     {
         Instance = this;
+
+        foreach (SfxData data in sfxDataArr)
+        {
+            sfxDataDic.Add(data.sfxType, data);
+        }
+
+        foreach (BgmData data in bgmDataArr)
+        {
+            BgmDataDic.Add(data.bgmType, data);
+        }
+    }
+
+    public SfxData GetSfxAudioClip(Define.SfxType type)
+    {
+        return sfxDataDic[type];
+    }
+    public BgmData GetBgmAudioClip(Define.BgmType type)
+    {
+        return BgmDataDic[type];
+    }
+
+
+    [System.Serializable]
+    public class SoundData
+    {
+        public AudioClip clip;
+        public float volume = 1;
+    }
+
+
+
+    [System.Serializable]
+    public class SfxData : SoundData
+    {
+        public Define.SfxType sfxType;        
+    }
+
+    [System.Serializable]
+    public class BgmData : SoundData 
+    {
+        public Define.BgmType bgmType;
     }
 }
+
