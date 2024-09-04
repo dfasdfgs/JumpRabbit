@@ -3,6 +3,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     private BoxCollider2D col;
+    private Animation anim;
     [SerializeField] int score;
 
     public float HalfSizeX => col.size.x * 0.5f;
@@ -12,6 +13,7 @@ public class Platform : MonoBehaviour
     private void Awake()
     {
         col = GetComponentInChildren<BoxCollider2D>();
+        anim = GetComponent<Animation>();
     }
 
     public void Active(Vector2 pos)
@@ -25,8 +27,8 @@ public class Platform : MonoBehaviour
         }
     }
 
-    internal void OnLanding()
+    public void OnLandingAnimation()
     {
-        ScoreManager.Instance.AddScore(score, transform.position);
+        anim.Play();
     }
 }
