@@ -16,6 +16,7 @@ public class DataBaseManater : ScriptableObject
     public Color ScoreColor;
     public Color BonusColor;
     public float ScorePopinterval = 0.2f;
+    public Effect effect;
 
     [Header("플레이어")]
     public float JumpPowerInc = 1;
