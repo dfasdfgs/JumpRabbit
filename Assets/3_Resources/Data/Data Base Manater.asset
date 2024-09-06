@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Data Base Manater
   m_EditorClassIdentifier: Assembly-CSharp::DataBaseManater
   baseItem: {fileID: 7465366257863086580, guid: 72322decddb654c4fa6766317831747a, type: 3}
-  itemSpawnPer: 0.5
+  itemSpawnPer: 1
   itemBouns: 0.25
   ScoreColor: {r: 1, g: 1, b: 1, a: 1}
   BonusColor: {r: 1, g: 1, b: 0, a: 1}
