@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
         totalScore += score;
         scoreTmp.text = totalScore.ToString();
 
-        if(isCalcBonus)
+        if (isCalcBonus)
         {
             int bonusScore = (int)(score * totalBonus);
             AddScore(bonusScore, scorePos, false);

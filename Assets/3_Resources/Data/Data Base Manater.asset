@@ -20,6 +20,7 @@ MonoBehaviour:
   ScorePopinterval: 0.2
   effect: {fileID: 3652773350946405540, guid: 536bcba13a21ae84fbbe062a143b2602, type: 3}
   JumpPowerInc: 4
+  GameOverY: -5
   LargePlatformArr:
   - {fileID: 3149893595993718301, guid: f81e144c0504d704db1f1be696975f0b, type: 3}
   - {fileID: 3149893595993718301, guid: 84031f6634f56f344a9041c25392b707, type: 3}
@@ -34,15 +35,15 @@ MonoBehaviour:
   - {fileID: 9155046202840921699, guid: 601a664effd148f4583a4c5e6b10a575, type: 3}
   - {fileID: 9155046202840921699, guid: 43e9db0cc433e2f409191227aa6fb981, type: 3}
   DataArr:
-  - GroupCount: 6
+  - GroupCount: 2
     LargePercent: 1
     MiddlePercent: 0
     SmallPercent: 0
-  - GroupCount: 5
+  - GroupCount: 2
     LargePercent: 0.4
     MiddlePercent: 0.3
     SmallPercent: 0.3
-  - GroupCount: 5
+  - GroupCount: 1
     LargePercent: 0.1
     MiddlePercent: 0.5
     SmallPercent: 0.4

@@ -83,11 +83,11 @@ public class DataBaseManater : ScriptableObject
     [System.Serializable]
     public class SfxData : SoundData
     {
-        public Define.SfxType sfxType;        
+        public Define.SfxType sfxType;
     }
 
     [System.Serializable]
-    public class BgmData : SoundData 
+    public class BgmData : SoundData
     {
         public Define.BgmType bgmType;
     }

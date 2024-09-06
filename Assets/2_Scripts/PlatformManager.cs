@@ -6,8 +6,8 @@ public class PlatformManager : MonoBehaviour
     [System.Serializable]
     public class Data
     {
-         [Tooltip("ÇÃÆÖÆû ±×·ì °¹¼ö")] public int GroupCount;
-        [Tooltip("ÇÃÆÖÆû Å« ±×·ì ºñÀ²"), Range(0, 1f)] [SerializeField] float LargePercent;
+        [Tooltip("ÇÃÆÖÆû ±×·ì °¹¼ö")] public int GroupCount;
+        [Tooltip("ÇÃÆÖÆû Å« ±×·ì ºñÀ²"), Range(0, 1f)][SerializeField] float LargePercent;
         [Tooltip("ÇÃÆÖÆû Áß°£ ±×·ì ºñÀ²"), Range(0, 1f)][SerializeField] float MiddlePercent;
         [Tooltip("ÇÃÆÖÆû ÀÛÀº ±×·ì ºñÀ²"), Range(0, 0.05f)][SerializeField] float SmallPercent;
 
@@ -34,6 +34,7 @@ public class PlatformManager : MonoBehaviour
     }
 
     [SerializeField] Transform spawnPosTrf;
+    Vector3 SpawnPos;
 
     private int platformNumber = 0;
 
@@ -49,7 +50,7 @@ public class PlatformManager : MonoBehaviour
 
     internal void Active()
     {
-        Vector3 Pos = spawnPosTrf.position;
+        SpawnPos = spawnPosTrf.position;
 
         int platformGroupSum = 0;
         foreach (Data data in DataBaseManater.Instance.DataArr)
@@ -59,13 +60,13 @@ public class PlatformManager : MonoBehaviour
             while (platformNumber < platformGroupSum)
             {
                 int platformID = data.GetPlatformID();
-                Pos = ActiveOne(Pos, platformID);
+                ActiveOne(platformID);
                 platformNumber++;
             }
         }
     }
 
-    private Vector3 ActiveOne(Vector3 Pos, int platformID)
+    private void ActiveOne(int platformID)
     {
         Platform[] platforms = PlatformArrDic[platformID];
 
@@ -76,12 +77,11 @@ public class PlatformManager : MonoBehaviour
 
         bool isFirstFrame = platformNumber == 0;
         if (isFirstFrame == false)
-            Pos = Pos + Vector3.right * platform.HalfSizeX;
-        
-        platform.Active(Pos, isFirstFrame);
+            SpawnPos = SpawnPos + Vector3.right * platform.HalfSizeX;
+
+        platform.Active(SpawnPos, isFirstFrame);
 
         float gap = Random.Range(DataBaseManater.Instance.GepIntervalMin, DataBaseManater.Instance.GepIntervalMax);
-        Pos = Pos + Vector3.right * (platform.HalfSizeX + gap);
-        return Pos;
+        SpawnPos = SpawnPos + Vector3.right * (platform.HalfSizeX + gap);
     }
 }

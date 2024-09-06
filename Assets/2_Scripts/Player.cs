@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
             effect.Active(transform.position);
         }
 
-        if(transform.position.y < DataBaseManater.Instance.GameOverY)
+        if (transform.position.y < DataBaseManater.Instance.GameOverY)
         {
             GameManager.instance.OnGameOver();
         }
@@ -65,10 +65,10 @@ public class Player : MonoBehaviour
                 landedPlatform = platform;
                 return;
             }
-                if (landedPlatform != platform) ScoreManager.Instance.AddBonus(DataBaseManater.Instance.BonusValue, transform.position);
-                else ScoreManager.Instance.ResetBonus(transform.position);
+            if (landedPlatform != platform) ScoreManager.Instance.AddBonus(DataBaseManater.Instance.BonusValue, transform.position);
+            else ScoreManager.Instance.ResetBonus(transform.position);
 
-                ScoreManager.Instance.AddScore(platform.Score, platform.transform.position);
+            ScoreManager.Instance.AddScore(platform.Score, platform.transform.position);
 
             landedPlatform = platform;
         }

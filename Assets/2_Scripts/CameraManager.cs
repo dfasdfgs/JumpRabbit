@@ -28,7 +28,7 @@ public class CameraManager : MonoBehaviour
             float bgRightX = bgSrdr.transform.position.x + bgSrdr.size.x;
             float cameraRightX = Camera.main.transform.position.x + cameraWidth / 2;
 
-            if(bgRightX <= cameraRightX) 
+            if (bgRightX <= cameraRightX)
             {
                 bgSrdr.size = new Vector2(bgSrdr.size.x + cameraWidth, bgSrdr.size.y);
             }
