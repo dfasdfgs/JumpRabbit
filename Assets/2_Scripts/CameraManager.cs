@@ -23,7 +23,7 @@ public class CameraManager : MonoBehaviour
     {
         while (0.1 < Vector3.Distance(transform.position, targerPos))
         {
-            transform.position = Vector3.Lerp(transform.position, targerPos, Time.deltaTime * DataBaseManater.Instance.followSpeed);
+            transform.position = Vector3.Lerp(transform.position, targerPos, Time.deltaTime * DataBaseManager.Instance.followSpeed);
 
             float bgRightX = bgSrdr.transform.position.x + bgSrdr.size.x;
             float cameraRightX = Camera.main.transform.position.x + cameraWidth / 2;

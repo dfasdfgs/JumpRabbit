@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
                 scoreobj.Active(data.str, data.color);
 
                 scoreDataList.RemoveAt(0);
-                yield return new WaitForSeconds(DataBaseManater.Instance.ScorePopinterval);
+                yield return new WaitForSeconds(DataBaseManager.Instance.ScorePopinterval);
             }
             else
             {
@@ -62,7 +62,7 @@ public class ScoreManager : MonoBehaviour
         scoreDataList.Add(new ScoreData()
         {
             str = score.ToString(),
-            color = DataBaseManater.Instance.ScoreColor,
+            color = DataBaseManager.Instance.ScoreColor,
             pos = scorePos
         });
 
@@ -82,7 +82,7 @@ public class ScoreManager : MonoBehaviour
         scoreDataList.Add(new ScoreData()
         {
             str = "Bonus " + bonus.ToPersentStiring(),
-            color = DataBaseManater.Instance.BonusColor,
+            color = DataBaseManager.Instance.BonusColor,
             pos = position
         });
 
@@ -98,7 +98,7 @@ public class ScoreManager : MonoBehaviour
         scoreDataList.Add(new ScoreData()
         {
             str = "Bonus √ ±‚»≠...",
-            color = DataBaseManater.Instance.BonusColor,
+            color = DataBaseManager.Instance.BonusColor,
             pos = bonusPos
         });
 

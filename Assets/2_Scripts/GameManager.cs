@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PlatformManager platformManager;
     [SerializeField] CameraManager cameraManager;
-    [SerializeField] DataBaseManater dataBasemanater;
+    [SerializeField] DataBaseManager dataBasemanater;
     [SerializeField] ScoreManager scoreManager;
     [SerializeField] SoundManager soundManager;
     [SerializeField] GameObject retryBtnObj;

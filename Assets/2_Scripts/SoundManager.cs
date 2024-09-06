@@ -14,13 +14,13 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySfx(Define.SfxType sfxType)
     {
-        DataBaseManater.SfxData sfxData = DataBaseManater.Instance.GetSfxAudioClip(sfxType);
+        DataBaseManager.SfxData sfxData = DataBaseManager.Instance.GetSfxAudioClip(sfxType);
         sfxAudioSource.volume = sfxData.volume;
         sfxAudioSource.PlayOneShot(sfxData.clip);
     }
     public void PlayBgm(Define.BgmType Type)
     {
-        DataBaseManater.BgmData bgmData = DataBaseManater.Instance.GetBgmAudioClip(Type);
+        DataBaseManager.BgmData bgmData = DataBaseManager.Instance.GetBgmAudioClip(Type);
         bgmAudioSource.clip = bgmData.clip;
         bgmAudioSource.volume = bgmData.volume;
         bgmAudioSource.Play();

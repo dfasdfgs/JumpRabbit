@@ -3,9 +3,9 @@ using UnityEngine;
 using static Define;
 
 [CreateAssetMenu]
-public class DataBaseManater : ScriptableObject
+public class DataBaseManager : ScriptableObject
 {
-    public static DataBaseManater Instance;
+    public static DataBaseManager Instance;
 
     [Header("아이템")]
     public Item baseItem;
@@ -31,6 +31,7 @@ public class DataBaseManater : ScriptableObject
     [Tooltip("최소간격")] public float GepIntervalMin = 1.5f;
     [Tooltip("최대간격")] public float GepIntervalMax = 3.0f;
     [Tooltip("보너스 추가 점수")] public float BonusValue;
+    public int remainPlatformCount = 5;
 
     [Header("카메라")] public float followSpeed;
 

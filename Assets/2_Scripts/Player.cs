@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            JumpPower += DataBaseManater.Instance.JumpPowerInc;
+            JumpPower += DataBaseManager.Instance.JumpPowerInc;
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -38,11 +38,11 @@ public class Player : MonoBehaviour
             Define.SfxType sfxType = Random.value < 0.5f ? Define.SfxType.Jump1 : Define.SfxType.Jump2;
             SoundManager.Instance.PlaySfx(sfxType);
 
-            Effect effect = Instantiate(DataBaseManater.Instance.effect);
+            Effect effect = Instantiate(DataBaseManager.Instance.effect);
             effect.Active(transform.position);
         }
 
-        if (transform.position.y < DataBaseManater.Instance.GameOverY)
+        if (transform.position.y < DataBaseManager.Instance.GameOverY)
         {
             GameManager.instance.OnGameOver();
         }
@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
 
         if (collision.transform.TryGetComponent(out Platform platform))
         {
+            PlatformManager.Instance.LandingPlatformNum = platform.number;
             platform.OnLandingAnimation();
 
             if (landedPlatform == null)
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
                 landedPlatform = platform;
                 return;
             }
-            if (landedPlatform != platform) ScoreManager.Instance.AddBonus(DataBaseManater.Instance.BonusValue, transform.position);
+            if (landedPlatform != platform) ScoreManager.Instance.AddBonus(DataBaseManager.Instance.BonusValue, transform.position);
             else ScoreManager.Instance.ResetBonus(transform.position);
 
             ScoreManager.Instance.AddScore(platform.Score, platform.transform.position);

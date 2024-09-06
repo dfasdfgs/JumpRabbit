@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
     {
         if(collision.transform.TryGetComponent(out Player player))
         {
-            ScoreManager.Instance.AddBonus(DataBaseManater.Instance.itemBouns, transform.position);
+            ScoreManager.Instance.AddBonus(DataBaseManager.Instance.itemBouns, transform.position);
             Destroy(gameObject);
         }
     }

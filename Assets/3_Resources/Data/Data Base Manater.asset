@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 700d5b9b2cc10064388704737c21d80c, type: 3}
   m_Name: Data Base Manater
   m_EditorClassIdentifier: Assembly-CSharp::DataBaseManater
   baseItem: {fileID: 7465366257863086580, guid: 72322decddb654c4fa6766317831747a, type: 3}
-  itemSpawnPer: 1
+  itemSpawnPer: 0.5
   itemBouns: 0.25
   ScoreColor: {r: 1, g: 1, b: 1, a: 1}
-  BonusColor: {r: 1, g: 1, b: 0, a: 1}
+  BonusColor: {r: 1, g: 0.92036945, b: 0, a: 1}
   ScorePopinterval: 0.2
   effect: {fileID: 3652773350946405540, guid: 536bcba13a21ae84fbbe062a143b2602, type: 3}
-  JumpPowerInc: 4
+  JumpPowerInc: 5
   GameOverY: -5
   LargePlatformArr:
   - {fileID: 3149893595993718301, guid: f81e144c0504d704db1f1be696975f0b, type: 3}
@@ -35,22 +35,23 @@ MonoBehaviour:
   - {fileID: 9155046202840921699, guid: 601a664effd148f4583a4c5e6b10a575, type: 3}
   - {fileID: 9155046202840921699, guid: 43e9db0cc433e2f409191227aa6fb981, type: 3}
   DataArr:
-  - GroupCount: 2
+  - GroupCount: 5
     LargePercent: 1
     MiddlePercent: 0
     SmallPercent: 0
-  - GroupCount: 2
-    LargePercent: 0.4
+  - GroupCount: 5
+    LargePercent: 0.5
     MiddlePercent: 0.3
-    SmallPercent: 0.3
-  - GroupCount: 1
-    LargePercent: 0.1
+    SmallPercent: 0.1
+  - GroupCount: 3
+    LargePercent: 0
     MiddlePercent: 0.5
-    SmallPercent: 0.4
-  GepIntervalMin: 1
-  GepIntervalMax: 4
+    SmallPercent: 0.5
+  GepIntervalMin: 1.5
+  GepIntervalMax: 3
   BonusValue: 0.05
-  followSpeed: 7
+  remainPlatformCount: 5
+  followSpeed: 8
   sfxDataArr:
   - clip: {fileID: 8300000, guid: 4973db4449778d64cad7dee8f61ee655, type: 3}
     volume: 1
@@ -60,5 +61,5 @@ MonoBehaviour:
     sfxType: 2
   bgmDataArr:
   - clip: {fileID: 8300000, guid: e0e43c628e1bee542bd57ac3d8780aff, type: 3}
-    volume: 0.5
+    volume: 1
     bgmType: 1
