@@ -19,8 +19,10 @@ MonoBehaviour:
   BonusColor: {r: 1, g: 0.92036945, b: 0, a: 1}
   ScorePopinterval: 0.2
   effect: {fileID: 3652773350946405540, guid: 536bcba13a21ae84fbbe062a143b2602, type: 3}
-  JumpPowerInc: 5
+  JumpPowerInc: 600
   GameOverY: -5
+  minJumpPower: 300
+  maxJumpPower: 1000
   LargePlatformArr:
   - {fileID: 3149893595993718301, guid: f81e144c0504d704db1f1be696975f0b, type: 3}
   - {fileID: 3149893595993718301, guid: 84031f6634f56f344a9041c25392b707, type: 3}

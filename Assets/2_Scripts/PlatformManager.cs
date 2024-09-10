@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PlatformManager : MonoBehaviour
 {
-    public static PlatformManager Instance;
-
+    public static PlatformManager Instance;                 
     [System.Serializable]
     public class Data
     {

@@ -73,7 +73,10 @@ public class ScoreManager : MonoBehaviour
         if (isCalcBonus)
         {
             int bonusScore = (int)(score * totalBonus);
+            if(bonusScore > 0)
+            {
             AddScore(bonusScore, scorePos, false);
+            }
         }
     }
 

@@ -19,8 +19,10 @@ public class DataBaseManager : ScriptableObject
     public Effect effect;
 
     [Header("ÇÃ·¹ÀÌ¾î")]
-    public float JumpPowerInc = 1;
+    public float JumpPowerInc = 300;
     public float GameOverY = -5f;
+    public float minJumpPower = 300f;
+    public float maxJumpPower = 900f;
 
     [Header("ÇÃ·¿Æû")]
     [Tooltip("Å« ÇÃ·§Æû")] public Platform[] LargePlatformArr;
